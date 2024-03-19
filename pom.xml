@@ -10,9 +10,9 @@
 	</parent>
 
 	<groupId>me.jazzyjake</groupId>
-	<artifactId>clothesindexer</artifactId>
+	<artifactId>pasteimageserver</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ClothesIndexerServer</name>
+	<name>PasteImageServer</name>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

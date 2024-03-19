@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 public class PasteImageToServer {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(PasteImageToServer.class, args);
 	}
 
