@@ -1,17 +1,17 @@
 package me.jaketheduque.controllers;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Base64;
@@ -30,7 +30,7 @@ public class WebController {
 
         log.log(Level.INFO, "Received image of size {0}x{1} and {2} bytes!", new Object[]{bufferedImage.getWidth(), bufferedImage.getHeight(), imageBytes.length});
 
-        File image = new File("src/main/resources/image.png");
+        File image = new File("image.png");
         ImageIO.write(bufferedImage, "png", image);
 
         return "OKAY";
@@ -38,7 +38,7 @@ public class WebController {
 
     @GetMapping(value = "/getimage")
     public ResponseEntity<byte[]> getImage() throws IOException {
-        byte[] image = Files.readAllBytes(Path.of("src/main/resources/image.png"));
+        byte[] image = Files.readAllBytes(Path.of("image.png"));
         return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(image);
     }
 }
